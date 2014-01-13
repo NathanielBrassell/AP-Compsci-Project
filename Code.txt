@@ -5,3 +5,4 @@ public class Player{
 int position;
 String piece;
 int money = 3500;
+Array
