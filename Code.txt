@@ -1,3 +1,7 @@
 Code
 
-public class Player
+public class Player{
+
+int position;
+String piece;
+int money = 3500;
