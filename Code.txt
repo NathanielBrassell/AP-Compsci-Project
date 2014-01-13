@@ -5,4 +5,11 @@ public class Player{
 int position;
 String piece;
 int money = 3500;
-Array
+Arraylist properties = new ArrayList;
+
+public int roll(){
+int rand = (int)(Math.random() * 6) + 1;
+int rand2 = (int)(Math.random() * 6) + 1;
+int rand3 = rand + rand2;
+return rand3;
+}
