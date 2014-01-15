@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Game2 extends JFrame {
-    public Game2(){
+public class Game extends JFrame {
+    public Game(){
 	//Frame settings
 	setTitle("Stuyopoly");
 	setDefaultCloseOperation(EXIT_ON_CLOSE );
