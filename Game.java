@@ -145,7 +145,7 @@ public class Game extends JFrame {
 	setJMenuBar (menuBar);
     }
     public static void main(String[] args){
-        Game2 Stuyopoly = new Game2();
+        Game Stuyopoly = new Game();
         Stuyopoly.setVisible(true);
     }
 }
