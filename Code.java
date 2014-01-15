@@ -1,5 +1,5 @@
 public class Code{
-
+	
  	int position;
   String piece;
   String type;
@@ -24,20 +24,24 @@ public class Code{
   		position = pos;
   	}
   }
-
+	
   public int rollDice(){
     int rand = (int)(Math.random() * 6) + 1;
     int rand2 = (int)(Math.random() * 6) + 1;
     int rand3 = rand + rand2;
     return rand3;
   }
-
+	
 public void Move{
+	position += rollDice;
+} 
 
+public 
+	
 public void main(String [] args){
-
+	
   for (int x = 0; x < 17; x++){
   	int temp_price = x + 1;
   	int temp_rent = x + 2;
   	
-}
+} 
