@@ -15,15 +15,22 @@ public class Player{
 		return rand3;
 	}
 	
-	public Object move(Arraylist board){
+	public Object move(Arraylist<Property> board){
 		int position += rollDice();
 		ret = board[position];
 		canBuy(ret);
 		return ret;
 	}
 	
-	public Boolean canBuy(Property prop){
-		if (money >= prop.getRent());
+	public void canBuy(Property prop){
+		boolean ret = false
+		if (money >= prop.getPrice()){
+			ret =  true;
+		}
+		willBuy(ret, prop);
 	}
 	
-	
+	public void willBuy(Boolean boo, Property prop){
+		
+	}
+}
