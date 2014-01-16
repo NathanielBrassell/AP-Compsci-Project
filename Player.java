@@ -9,6 +9,14 @@ public class Player{
 	String piece = "";
 	Arraylist propOwned = new Arraylist();
 	
+	public int getMoney(){
+		return money;
+	}
+	
+	public void setMoney(int m){
+		money = m;
+	}
+	
 	public int rollDice(){
 		int rand1 = (int)(Math.random() * 6) + 1;
 		int rand2 = (int)(Math.random() * 6) + 1;
