@@ -1,3 +1,4 @@
+import cs1.Keyboard;
 import java.util.ArrayList;
 
 public class Player{
@@ -31,6 +32,11 @@ public class Player{
 	}
 	
 	public void willBuy(Boolean boo, Property prop){
-		
+		System.out.println("Do you wish to buy" + prop.getName() + "?");
+		String reply = Keyboard.readWord();
+		if (reply.equals("yes"){
+			prop.setAvail(false);
+			propOwned.add(prop);
+		}
 	}
 }
