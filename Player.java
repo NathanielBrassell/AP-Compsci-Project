@@ -43,7 +43,7 @@ public class Player{
 		if (boo && prop.getAvail()){
 			System.out.println("Do you wish to buy" + prop.getName() + "?");
 			String reply = Keyboard.readWord();
-			if (reply.equals("yes"){
+			if (reply.equals("yes")){
 				money -= prop.getPrice();
 				prop.setAvail(false);
 				propOwned.add(prop);
