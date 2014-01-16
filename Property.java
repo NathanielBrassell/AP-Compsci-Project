@@ -3,7 +3,7 @@ public class Property{
  private int price 0 ;
  private int rent = 0;
  private String name = "";
- private Boolean Avail = true;
+ private Boolean avail = true;
  
  public int getPrice(){
    return price;
@@ -11,6 +11,18 @@ public class Property{
  
  public int getRent(){
    return rent;
+ }
+ 
+ public Boolean getAvail(){
+   return avail;
+ }
+ 
+ public void setAvail(Boolean boo){
+   avail = boo;
+ }
+ 
+ public void toRent(Player play){
+   play.setMoney(play.getMoney() - rent);
  }
  
  public String toString(){
