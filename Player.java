@@ -40,14 +40,19 @@ public class Player{
 	}
 	
 	public void willBuy(Boolean boo, Property prop){
-		if (boo && prop.getAvail()){
-			System.out.println("Do you wish to buy" + prop.getName() + "?");
-			String reply = Keyboard.readWord();
-			if (reply.equals("yes")){
-				money -= prop.getPrice();
-				prop.setAvail(false);
-				propOwned.add(prop);
+		if (prop.getAvail()){
+			if (boo){
+				System.out.println("Do you wish to buy" + prop.getName() + "?");
+				String reply = Keyboard.readWord();
+				if (reply.equals("yes")){
+					money -= prop.getPrice();
+					prop.setAvail(false);
+					propOwned.add(prop);
+				}
 			}
+		}
+		else(){
+			prop.rent(this)
 		}
 	}
 }
