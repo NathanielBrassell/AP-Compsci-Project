@@ -8,124 +8,68 @@ public class Game extends JFrame {
         //Frame settings
         setTitle("Stuyopoly");
         setDefaultCloseOperation(EXIT_ON_CLOSE );
-        setLocation( 250, 250 );
-        setSize(500,500);
+        setLocation( 200, 200 );
+        setSize(700,650);
         JPanel pane = new JPanel (new GridBagLayout());
+		pane.setBackground(Color.CYAN);
         GridBagConstraints c = new GridBagConstraints();
         getContentPane().add (pane,BorderLayout.NORTH);
-
-        //tiles
-        JLabel tile1 = new JLabel("Tile 1");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.ipady = 60;
         c.gridx = 0;
         c.gridy = 0;
-        pane.add(tile1, c);
-        tile1.setBorder(BorderFactory
+		c.ipady = 120;
+		c.ipadx = 120;
+		
+		for (int x = 0; x < 3; x++){
+			for ( int y = 0 ; y < 3; y++){	
+				JPanel tile = new JPanel();
+				c.gridx = x;
+				c.gridy = y;
+				pane.add(tile, c);
+				tile.setBorder(BorderFactory
                         .createLineBorder(Color.BLACK));
+						}
+				}
 
-        JLabel tile2 = new JLabel("Tile 2");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.ipady = 60;
-        c.gridx = 1;
-        c.gridy = 0;
-        pane.add(tile2, c);
-        tile2.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-
-        JLabel tile3 = new JLabel("Tile 3");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 60;
-        c.weightx = 0.5;
-        c.gridx = 2;
-        c.gridy = 0;
-        pane.add(tile3, c);
-        tile3.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-
-        JLabel tile4 = new JLabel("Tile 4");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 60; //make this component tall
-        c.weightx = 0.0;
-        c.gridwidth = 1;
-        c.anchor = GridBagConstraints.LINE_START;
- 
-        c.gridx = 0;
-        c.gridy = 1;
-        pane.add(tile4, c);
-        tile4.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-
-        JLabel tile5 = new JLabel("Tile 5");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 60; //make this component tall
-        c.weightx = 0.0;
-        c.gridwidth = 1;
-        c.gridx = 2;
-        c.gridy = 1;
-        pane.add(tile5, c);
-        tile5.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-
-        JLabel tile6 = new JLabel("Tile 6");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.gridwidth = 1;
-        c.insets = new Insets(0,0,0,0);
-        c.ipady = 60;
-        c.gridx = 0;
-        c.gridy = 2;
-        pane.add(tile6, c);
-        tile6.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-
-        JLabel tile7 = new JLabel("Tile 7");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.5;
-        c.insets = new Insets(0,0,0,0);
-        c.ipady = 60;
-        c.gridx = 1;
-        c.gridy = 2;
-        pane.add(tile7, c);
-        tile7.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-
-        JLabel tile8 = new JLabel("Tile 8");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(0,0,0,0);
-        c.ipady = 60;
-        c.gridx = 2;
-        c.gridy = 2;
-        pane.add(tile8, c);
-        tile8.setBorder(BorderFactory
-                        .createLineBorder(Color.BLACK));
-        
         //Buttons
         JButton Dice = new JButton ("Roll");
-        c.gridwidth = 3;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(0,0,0,0);
+		c.gridwidth = 3;
+        c.insets = new Insets(10,0,0,0);
         c.ipady = 10;
         c.gridx = 0;
         c.gridy = 3;
         pane.add(Dice, c);
+		
+		JButton Buy = new JButton ("Buy");
+		c.gridwidth = 3;
+        c.insets = new Insets(10,0,0,0);
+        c.ipady = 10;
+        c.gridx = 0;
+        c.gridy = 4;
+        pane.add(Buy, c);
+		
+		JButton EndTurn = new JButton ("End Turn");
+		c.gridwidth = 3;
+        c.insets = new Insets(10,0,0,0);
+        c.ipady = 10;
+        c.gridx = 0;
+        c.gridy = 5;
+        pane.add(EndTurn, c);
 
         //TextArea
         final JTextArea Text = new JTextArea ("Welcome to Stuyopoly \n");
-	Text.setEditable(false);
+        Text.setEditable(false);
         c.gridwidth = 2;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(0,0,0,0);
-        c.ipady = 70;
-        c.gridx = 0;
-        c.gridy = 4;
+		c.gridheight = 3;
+        c.insets = new Insets(10,10,10,10);
+        c.ipady = 300;
+		c.ipadx = 70;
+        c.gridx = 5;
+        c.gridy = 0;
         pane.add(Text, c);
 
-	//ScrollPane
-	JScrollPane areaScrollPane = new JScrollPane(Text);
-	pane.add (areaScrollPane,c);
+        //ScrollPane
+        JScrollPane areaScrollPane = new JScrollPane(Text);
+        pane.add (areaScrollPane,c);
 
         //Menu
         JMenuBar menuBar = new JMenuBar();
@@ -148,11 +92,11 @@ public class Game extends JFrame {
                  Text.append ("You rolled a " + rand3 + "\n");
                 }
          });
-	menuItem.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent r){
-		Text.setText("Welcome to Stuyopoly \n"); 
-		}
- 		}  );
+        menuItem.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent r){
+                Text.setText("Welcome to Stuyopoly \n"); 
+                }
+                 }  );
  
 
     }
