@@ -52,7 +52,7 @@ public class Player{
 			}
 		}
 		else(){
-			prop.rent(this)
+			prop.rent(this);
 		}
 	}
 }
