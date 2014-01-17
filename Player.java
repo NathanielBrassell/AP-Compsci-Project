@@ -1,4 +1,3 @@
-import cs1.Keyboard;
 import java.util.ArrayList;
 
 public class Player{
@@ -43,7 +42,8 @@ public class Player{
 		if (prop.getAvail()){
 			if (boo){
 				System.out.println("Do you wish to buy" + prop.getName() + "?");
-				String reply = Keyboard.readWord();
+				//Make radio button yes, no and way to submit it
+				String reply = //Make equal to radio buton selected
 				if (reply.equals("yes")){
 					money -= prop.getPrice();
 					prop.setAvail(false);
