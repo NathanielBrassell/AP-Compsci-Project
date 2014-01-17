@@ -31,33 +31,11 @@ public class Player{
 	public Object move(Arraylist<Property> board){
 		int position += rollDice();
 		ret = board[position];
-		canBuy(ret);
+		if (ret.getAvail() == false){
+			ret.rent(this)
+		}
 		return ret;
 	}
 	
-	public void canBuy(Property prop){
-		boolean ret = false
-		if (money >= prop.getPrice()){
-			ret =  true;
-		}
-		willBuy(ret, prop);
-	}
-	
-	public void willBuy(Boolean boo, Property prop){
-		if (prop.getAvail()){
-			if (boo){
-				System.out.println("Do you wish to buy" + prop.getName() + "?");
-				//Make radio buttons, yes and no.
-				String reply;//Make equal to radio button selected and submitted
-				if (reply.equals("yes")){
-					money -= prop.getPrice();
-					prop.setAvail(false);
-					propOwned.add(prop);
-				}
-			}
-		}
-		else(){
-			prop.rent(this);
-		}
-	}
+	public Buy(Property prop)
 }
