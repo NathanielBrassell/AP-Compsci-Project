@@ -5,6 +5,12 @@ public class Property{
  private String name = "";
  private Boolean avail = true;
  
+ public Property(int prc, int rnt, String nam){
+   price = prc;
+   rent = rnt;
+   name = nam;
+ }
+ 
  public int getPrice(){
    return price;
  }
