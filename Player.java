@@ -48,7 +48,7 @@ public class Player{
 			if (boo){
 				System.out.println("Do you wish to buy" + prop.getName() + "?");
 				//Make radio buttons, yes and no.
-				String reply = //Make equal to radio button selected and submitted
+				String reply;//Make equal to radio button selected and submitted
 				if (reply.equals("yes")){
 					money -= prop.getPrice();
 					prop.setAvail(false);
