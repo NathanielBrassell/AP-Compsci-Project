@@ -8,6 +8,11 @@ public class Player{
 	String piece = "";
 	Arraylist propOwned = new Arraylist();
 	
+	public Player(String nam, String pece){
+		name = nam;
+		peice = pece;
+	}
+	
 	public int getMoney(){
 		return money;
 	}
