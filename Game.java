@@ -10,6 +10,20 @@ public class Game extends JFrame {
 	JPanel temp;
 	JLabel Player1;
 	private static int Location = 0;
+	Arraylist board = new Arraylist();
+	board.add(new Property(0,0,null));
+	board.add(new Property(12,5,"PE"));
+	board.add(new Property(12,10, "Health"));
+	board.add(new Property(0,0,null));
+	board.add(new Property(0,0,null));
+	board.add(new Property(20,15, "Geometry"));
+	board.add(new Property(20,15, "Trigonometry"));
+	board.add(new Property(24,20, "Calculus"));
+	board.add(new Property(0,0,null));
+	board.add(new Property(28,25,"Biology"));
+	board.add(new Property(28,25,"Chemistry"));
+	board.add(new Property(31,30, "Physics"));
+	
 			
     private Image getScaledImage(Image srcImg, int w, int h){
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
@@ -204,6 +218,10 @@ public class Game extends JFrame {
         c.gridx = 0;
         c.gridy = 1;
         Controls.add(Buy, c);
+        
+        public int Buy(){
+        	Property prop = board[location];
+        }
 		
         JButton EndTurn = new JButton ("End Turn");
         c.insets = new Insets(10,10,10,10);
