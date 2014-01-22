@@ -9,23 +9,14 @@ public class Game extends JFrame {
 	JPanel board;
 	JPanel temp;
 	JLabel Player1;
-	private static int Location = 0;
-	Arraylist board = new Arraylist();
-	board.add(new Property(0,0,null));
-	board.add(new Property(12,5,"PE"));
-	board.add(new Property(12,10, "Health"));
-	board.add(new Property(0,0,null));
-	board.add(new Property(0,0,null));
-	board.add(new Property(20,15, "Geometry"));
-	board.add(new Property(20,15, "Trigonometry"));
-	board.add(new Property(24,20, "Calculus"));
-	board.add(new Property(0,0,null));
-	board.add(new Property(28,25,"Biology"));
-	board.add(new Property(28,25,"Chemistry"));
-	board.add(new Property(31,30, "Physics"));
-	board.add(new Property(36,35, "Intro to Compsci"));
-	board.add(new Property(40, 39, "AP Compsci"));
-	
+	JLabel Player2;
+	Player Uno = new Player();
+	Player Dos = new Player();
+	private static int Current = 1;
+	private static int Location1 = 0;
+	private static int Location2 = 0;
+	private boolean Moved = false;
+
 			
     private Image getScaledImage(Image srcImg, int w, int h){
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
@@ -43,17 +34,17 @@ public class Game extends JFrame {
         setTitle("Stuyopoly");
         setDefaultCloseOperation(EXIT_ON_CLOSE );
         setLocation( 0, 0 );
-        setSize(900,815);
+        setSize(950,865);
 		JPanel Controls = new JPanel (new GridBagLayout());
                 Controls.setBackground(Color.PINK);
 				
 		GridBagLayout gbl = new GridBagLayout();
 		
 		JPanel Display = new JPanel (new GridBagLayout());
-                Display.setBackground(Color.RED);
+                Display.setBackground(Color.PINK);
 				
         final JPanel board = new JPanel (new GridBagLayout());
-                board.setBackground(Color.Black);
+                board.setBackground(Color.PINK);
 				
         GridBagConstraints c = new GridBagConstraints();
 		
@@ -194,12 +185,12 @@ public class Game extends JFrame {
 		JPanel temp = (JPanel) board.getComponent(0);
 		JLabel Player1 = (JLabel) temp.getComponent(0);
 		ImageIcon icon = new ImageIcon("Teital.jpg");
-	    final ImageIcon thumbnailIcon = new ImageIcon(getScaledImage(icon.getImage(), 30, 30));
+	    	final ImageIcon thumbnailIcon = new ImageIcon(getScaledImage(icon.getImage(), 30, 30));
 		Player1.setIcon(thumbnailIcon);
 		
 		JLabel Player2 = (JLabel) temp.getComponent(2);
 		ImageIcon icon2 = new ImageIcon("Zhang.jpg");
-	    final ImageIcon thumbnailIcon2 = new ImageIcon(getScaledImage(icon2.getImage(), 30, 30));
+	   	 final ImageIcon thumbnailIcon2 = new ImageIcon(getScaledImage(icon2.getImage(), 30, 30));
 		Player2.setIcon(thumbnailIcon2);
 		
 		
@@ -220,10 +211,6 @@ public class Game extends JFrame {
         c.gridx = 0;
         c.gridy = 1;
         Controls.add(Buy, c);
-        
-        public int Buy(){
-        	Property prop = board[location];
-        }
 		
         JButton EndTurn = new JButton ("End Turn");
         c.insets = new Insets(10,10,10,10);
@@ -247,7 +234,7 @@ public class Game extends JFrame {
 		TextScrollPane.setPreferredSize(new Dimension(100,50));
 		c.insets = new Insets(10,10,10,10);
 		c.ipady = 300;
-        c.ipadx = 70;
+        c.ipadx = 100;
         c.gridx = 0;
         c.gridy = 0;
         Display.add (TextScrollPane,c);
@@ -257,7 +244,7 @@ public class Game extends JFrame {
 		BankScrollPane.setPreferredSize(new Dimension(100,50));
 		c.insets = new Insets(10,10,10,10);
         c.ipady = 300;
-        c.ipadx = 70;
+        c.ipadx = 100;
         c.gridx = 0;
         c.gridy = 1;
         Display.add (BankScrollPane,c);
@@ -277,31 +264,59 @@ public class Game extends JFrame {
         //Actions
         Dice.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e){
-                 int rand = (int) (Math.random() * 6) + 1;
-                 int rand2 = (int) (Math.random() * 6) + 1;
+		 if (Moved == false){
+                 int rand = (int) (Math.random() * 3) + 1;
+                 int rand2 = (int) (Math.random() * 3) + 1;
                  int rand3 = rand + rand2;
                  Text.append ("You rolled a " + rand3 + "\n");
-				 Text.setCaretPosition(Text.getDocument().getLength());
-				 JPanel temp = (JPanel) board.getComponent(Location);
+		 Text.setCaretPosition(Text.getDocument().getLength());
+		 if (Current == 1){
+				 JPanel temp = (JPanel) board.getComponent(Location1);
 				 JLabel Player1 = (JLabel) temp.getComponent(0);
 				 Player1.setIcon(null);
-				 if (Location + rand3 > 15){
-				 Location = Location - 16;}
-				 temp = (JPanel) board.getComponent(Location + rand3);
+				 if (Location1 + rand3 > 15){
+				 Location1 = Location1 - 16;}
+				 temp = (JPanel) board.getComponent(Location1 + rand3);
 				 Player1 = (JLabel) temp.getComponent(0);
-			     Player1.setIcon(thumbnailIcon);
-				 Location = Location + rand3;
+			     	 Player1.setIcon(thumbnailIcon);
+				 Location1 = Location1 + rand3;
+				 Moved = true;}
+		 if (Current == 2) {
+				 JPanel temp = (JPanel) board.getComponent(Location2);
+				 JLabel Player2 = (JLabel) temp.getComponent(2);
+				 Player2.setIcon(null);
+				 if (Location2 + rand3 > 15){
+				 Location2 = Location2 - 16;}
+				 temp = (JPanel) board.getComponent(Location2 + rand3);
+				 Player2 = (JLabel) temp.getComponent(2);
+			    	 Player2.setIcon(thumbnailIcon2);
+				 Location2 = Location2 + rand3;
+				Moved = true;}
+				
                 }
+		else {Text.append ("You can only roll once fool!" + "\n" + "Buy or End Turn" + "\n" );}}
          });
+
+	EndTurn.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			if (Current == 1){
+			Current = 2;}
+			else{
+			Current = 1;}
+			Moved = false;
+	}
+	});
+
+
         menuItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent r){
                 Text.setText("Welcome to Stuyopoly \n"); 
 				Bank.setText("Money! \nPlayer 1 has $200 \nPlayer 2 has $200 \n");
-				JPanel temp = (JPanel) board.getComponent(Location);
+				JPanel temp = (JPanel) board.getComponent(Location1);
 				JLabel Player1 = (JLabel) temp.getComponent(0);
 				Player1.setIcon(null);
-				Location = 0;
-				temp = (JPanel) board.getComponent(Location);
+				Location1 = 0;
+				temp = (JPanel) board.getComponent(Location1);
 				Player1 = (JLabel) temp.getComponent(0);
 			    Player1.setIcon(thumbnailIcon);
                 }
