@@ -11,6 +11,13 @@ public class Property{
    name = nam;
  }
  
+ public Property(String nam, String type){
+   name = nam;
+   if (type.equals("Chance")){
+     
+   }
+ }
+ 
  public int getPrice(){
    return price;
  }
