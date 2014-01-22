@@ -23,6 +23,8 @@ public class Game extends JFrame {
 	board.add(new Property(28,25,"Biology"));
 	board.add(new Property(28,25,"Chemistry"));
 	board.add(new Property(31,30, "Physics"));
+	board.add(new Property(36,35, "Intro to Compsci"));
+	board.add(new Property(40, 39, "AP Compsci"));
 	
 			
     private Image getScaledImage(Image srcImg, int w, int h){
