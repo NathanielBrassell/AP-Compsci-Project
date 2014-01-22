@@ -50,10 +50,10 @@ public class Game extends JFrame {
 		GridBagLayout gbl = new GridBagLayout();
 		
 		JPanel Display = new JPanel (new GridBagLayout());
-                Display.setBackground(Color.PINK);
+                Display.setBackground(Color.RED);
 				
         final JPanel board = new JPanel (new GridBagLayout());
-                board.setBackground(Color.PINK);
+                board.setBackground(Color.Black);
 				
         GridBagConstraints c = new GridBagConstraints();
 		
