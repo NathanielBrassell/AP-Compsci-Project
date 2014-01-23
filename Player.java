@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Player{
 
-        int money;
-        ArrayList propOwned;
-		String _name;
+        private int money;
+        private ArrayList Owned;
+	private String _name;
 		
         public Player(String name){
 		_name = name;
@@ -22,6 +22,14 @@ public class Player{
                 money = m;
         }
         
-        
-
+        public String getOwned(){
+        	String ret;
+        	if (Owned.size() == 0){
+        		return "None";
+        	}
+        	for (x = 0; x < Owned.size(); x++){
+        		ret += Owned.get(x).getName();
+        	}
+        	return ret;
+        }
 }
