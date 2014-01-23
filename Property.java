@@ -22,11 +22,6 @@ public class Property {
    avail = true;
  }
  
- public Property(String typ){
- 	type = typ;
- }
-
- 
  public int getPrice(){
    return price;
  }
