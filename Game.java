@@ -308,15 +308,18 @@ public class Game extends JFrame {
 								 if (CurrentP.getName().equals("Chance")){
 								 	Text.append("Tietel has lost money due to Chance");
 								 	Tietel.setMoney(getMoney() - 20);
+								 	Bank.set("Money! \n Teitel has $" + Teitel.getMoney() + "\n Teitel Owns" + Teitel.getOwned() + "\n Zhang has $" + Zhang.getMoney() + "\n Zhang Owns" + Zhang.getOwned());
 								 }
 								 else if(CurrentP.getName().equals("Chest")){
 								 	Text.append("Tietel has gained money from the Community");
 								 	Tietel.setMoney(getMoney() + 20);
+								 	Bank.set("Money! \n Teitel has $" + Teitel.getMoney() + "\n Teitel Owns" + Teitel.getOwned() + "\n Zhang has $" + Zhang.getMoney() + "\n Zhang Owns" + Zhang.getOwned());
 								 }
 								 else if (CurrentP.getOwner() == Zhang){
 								 	Text.append("This property is owned by " + "Zhang" + "\n" + "Tietel rented for $" + CurrentP.getRent() + "\n");
 								 	Tietel.setMoney(getMoney() - CurrentP.getRent());
 								 	Zhang.setMoney(getMoney() + CurrentP.getRent());
+								 	Bank.set("Money! \n Teitel has $" + Teitel.getMoney() + "\n Teitel Owns" + Teitel.getOwned() + "\n Zhang has $" + Zhang.getMoney() + "\n Zhang Owns" + Zhang.getOwned());
 								 	}}
                  if (Current == 2) {
 								Text.append ("Zhang rolled a " + rand + "\n");
@@ -336,15 +339,18 @@ public class Game extends JFrame {
 								if (CurrentP.getName().equals("Chance")){
 								 	Text.append("Zhang has lost money due to Chance");
 								 	Zhang.setMoney(getMoney() - 20);
+								 	Bank.set("Money! \n Teitel has $" + Teitel.getMoney() + "\n Teitel Owns" + Teitel.getOwned() + "\n Zhang has $" + Zhang.getMoney() + "\n Zhang Owns" + Zhang.getOwned());
 								 }
 								 else if(CurrentP.getName().equals("Chest")){
 								 	Text.append("Zhang has gained money from the Community");
 								 	Zhang.setMoney(getMoney() + 20);
+								 	Bank.set("Money! \n Teitel has $" + Teitel.getMoney() + "\n Teitel Owns" + Teitel.getOwned() + "\n Zhang has $" + Zhang.getMoney() + "\n Zhang Owns" + Zhang.getOwned());
 								 }
 								 else if (CurrentP.getOwner() == Tietel){
 								Text.append("This property is owned by " + "Tietel" + "\n" + "Zhang rented for $" + CurrentP.getRent() + "\n");
 									Zhang.setMoney(getMoney() - CurrentP.getRent());
 								 	Tietel.setMoney(getMoney() + CurrentP.getRent());
+								 	Bank.set("Money! \n Teitel has $" + Teitel.getMoney() + "\n Teitel Owns" + Teitel.getOwned() + "\n Zhang has $" + Zhang.getMoney() + "\n Zhang Owns" + Zhang.getOwned());
 								 	}
 								}
                                 
@@ -370,10 +376,11 @@ public class Game extends JFrame {
 														
 							if (CurrentP.getAvail() == false && CurrentP.getOwner() != Tietel){Text.append("This is not a property you can buy \n");}
 							
-							else{	if (CurrentP.getAvail()){
+							else{	if (CurrentP.getAvail() && Tietel.getMoney() >= CurrentP.getPrice()){
 									CurrentP.setOwner(Tietel);
 									CurrentP.setAvail(false);
-									Text.append("Teitel brought " + CurrentP.getName() + "\n");}
+									Text.append("Teitel brought " + CurrentP.getName() + "\n");
+									Tietel.setMoney(getMoney() - CurretnP.getPrice());}
 								else if (CurrentP.getOwner() != Tietel){Text.append("This property is owned by " + CurrentP.getOwner().getName());}	
 								else {Text.append("You own this property already \n");}}}
 
