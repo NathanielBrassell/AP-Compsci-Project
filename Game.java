@@ -305,8 +305,19 @@ public class Game extends JFrame {
                                  Moved = true;
 								 Property CurrentP = PList.get(Location1);
 								 Text.append ("Tietel landed on " + CurrentP.getName() + "\n");
-								 if (CurrentP.getOwner() == Zhang){
-								 Text.append("This property is owned by " + "Zhang" + "\n" + "Tietel rented for $" + CurrentP.getRent() + "\n");}}
+								 if (CurrentP.getName().equals("Chance")){
+								 	Text.append("Tietel has lost money due to Chance");
+								 	Tietel.setMoney(getMoney() - 20);
+								 }
+								 else if(CurrentP.getName().equals("Chest")){
+								 	Text.append("Tietel has gained money from the Community");
+								 	Tietel.setMoney(getMoney() + 20);
+								 }
+								 else if (CurrentP.getOwner() == Zhang){
+								 	Text.append("This property is owned by " + "Zhang" + "\n" + "Tietel rented for $" + CurrentP.getRent() + "\n");
+								 	Tietel.setMoney(getMoney() - CurrentP.getRent());
+								 	Zhang.setMoney(getMoney() + CurrentP.getRent());
+								 	}}
                  if (Current == 2) {
 								Text.append ("Zhang rolled a " + rand + "\n");
 								Text.setCaretPosition(Text.getDocument().getLength());
@@ -322,8 +333,19 @@ public class Game extends JFrame {
                                 Moved = true;
 								Property CurrentP = PList.get(Location2);
 								Text.append ("Zhang landed on " + CurrentP.getName() + "\n");
-								if (CurrentP.getOwner() == Tietel){
-								Text.append("This property is owned by " + "Tietel" + "\n" + "Zhang rented for $" + CurrentP.getRent() + "\n");}
+								if (CurrentP.getName().equals("Chance")){
+								 	Text.append("Zhang has lost money due to Chance");
+								 	Zhang.setMoney(getMoney() - 20);
+								 }
+								 else if(CurrentP.getName().equals("Chest")){
+								 	Text.append("Zhang has gained money from the Community");
+								 	Zhang.setMoney(getMoney() + 20);
+								 }
+								 else if (CurrentP.getOwner() == Tietel){
+								Text.append("This property is owned by " + "Tietel" + "\n" + "Zhang rented for $" + CurrentP.getRent() + "\n");
+									Zhang.setMoney(getMoney() - CurrentP.getRent());
+								 	Tietel.setMoney(getMoney() + CurrentP.getRent());
+								 	}
 								}
                                 
                 }
@@ -339,7 +361,6 @@ public class Game extends JFrame {
 						Text.append ("It is Tietel's turn, please roll" + "\n" );
                         Current = 1;}
                         Moved = false;
-        }
         });
 		
 		Buy.addActionListener(new ActionListener(){
