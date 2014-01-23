@@ -2,14 +2,18 @@ import java.util.ArrayList;
 
 public class Player{
 
-        int money = 150
-        String name = "";
-        String piece = "";
-	ArrayList propOwned = new ArrayList();
-        
-        public Player(){
+        int money;
+        ArrayList propOwned;
+		String _name;
+		
+        public Player(String name){
+		_name = name;
+		int money = 150;
+		ArrayList propOwned = new ArrayList();
         }
         
+		public String getName(){
+		return _name;}
         public int getMoney(){
                 return money;
         }
@@ -18,8 +22,6 @@ public class Player{
                 money = m;
         }
         
-
-
         
 
 }
