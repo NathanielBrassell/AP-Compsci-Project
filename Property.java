@@ -1,32 +1,26 @@
+import java.util.ArrayList;
 public class Property {
   
- private int price = 0 ;
- private int rent = 0;
- private String name = "";
- private Boolean avail = true;
-        ArrayList board = new ArrayList();
-        board.add(new Property(0,0,null));
-        board.add(new Property(12,5,"PE"));
-        board.add(new Property(12,10, "Health"));
-        board.add(new Property(0,0,null));
-        board.add(new Property(0,0,null));
-        board.add(new Property(20,15, "Geometry"));
-        board.add(new Property(20,15, "Trigonometry"));
-        board.add(new Property(24,20, "Calculus"));
-        board.add(new Property(0,0,null));
-        board.add(new Property(28,25,"Biology"));
-        board.add(new Property(28,25,"Chemistry"));
-        board.add(new Property(31,30, "Physics"));
-	board.add(new Property(0,0,null));
-        board.add(new Property(36,35, "Intro to Compsci"));
-        board.add(new Property(40, 39, "AP Compsci"));
-ArrayList NotOwned = board;
+ private int price ;
+ private int rent;
+ private String name;
+ private Boolean avail;
+ private Player OwnedBy = null;
  
+ 
+ 
+ public Property(String nam){
+  name = nam;
+  avail = false;
+  }
+  
  public Property(int prc, int rnt, String nam){
    price = prc;
    rent = rnt;
    name = nam;
+   avail = true;
  }
+
  
  public int getPrice(){
    return price;
@@ -40,9 +34,20 @@ ArrayList NotOwned = board;
    return avail;
  }
  
+ public String getName(){
+   return name;
+ }
+ 
  public void setAvail(Boolean boo){
    avail = boo;
  }
+ 
+public void setOwner(Player p){
+	OwnedBy = p;}
+	
+public Player getOwner(){
+	return OwnedBy;}	
+
  
  public void toRent(Player play){
    play.setMoney(play.getMoney() - rent);
