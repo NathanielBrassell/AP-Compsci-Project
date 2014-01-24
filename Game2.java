@@ -11,6 +11,7 @@ public class Game extends JFrame {
     JPanel temp;
     JLabel Player1;
     JLabel Player2;
+    private static boolean End = false;
     private static int Current = 1;
     private static int Location1 = 0;
     private static int Location2 = 0;
@@ -287,6 +288,7 @@ public class Game extends JFrame {
         //Actions
         Dice.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e){
+                	if(!End){
 		    if (Moved == false){
 			int rand = (int) (Math.random() * 6) + 1;
 			if (Current == 1){
@@ -382,6 +384,18 @@ public class Game extends JFrame {
                                 
 		    }
 		    else {Text.append ("You can only roll once fool!" + "\n" + "Buy or End Turn" + "\n" );}}
+		    if (Tietel.getMoney() < 0){
+		    	Text.append("The game is over and Zhang has won");
+		    	End = true;
+		    }
+		    else if(Zhang.getMoney() < 0){
+		    	Text.append("The game is over and Tietel has won");
+		    	End = true;
+		    }
+                }
+                else {
+                	Text.append("The game is over. Please start a new one.");
+                }
 	    });
 
         EndTurn.addActionListener(new ActionListener(){
