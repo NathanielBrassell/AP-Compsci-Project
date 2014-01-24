@@ -1,0 +1,12 @@
+1/9/14: Nathaniel started out line for Player class. Jackie started research for GUI.
+1/10/14: Nathaniel started to out line Property class.
+1/11/14: Nathaniel started coding Player class.
+1/12/14: Nathaneil continued to code Player class.
+1/13/14: Nathaniel finished coding Player class, started Property class. Created to-do list.
+1/14/14: Nathaniel revised Player class, continued coding Property class.
+1/15/14: Nathaniel revised Player class, finished Property class.
+1/16/14: Nathaniel revised both Player and Property class.
+1/17/14: Nathaniel helped Jackie with Game class. Revised Player.
+1/21/14: Nathaniel added Chance and Chest functionality to Game.
+1/22/14: Nathaniel made renting work.
+1/23/14: Nathaniel made DevLog
