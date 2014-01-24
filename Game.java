@@ -45,7 +45,7 @@ public class Game extends JFrame {
         PList.add(new Property(28,25,"Biology"));
         PList.add(new Property(28,25,"Chemistry"));
         PList.add(new Property(31,30, "Physics"));
-        PList.add(new Property("Go to Detention"));
+        PList.add(new Property("Detention"));
         PList.add(new Property("Chest"));
         PList.add(new Property(36,35, "Intro to Compsci"));
         PList.add(new Property(40, 39, "AP Compsci"));}
@@ -165,7 +165,7 @@ public class Game extends JFrame {
                 Property.setText("Physics");
                 tile.setBackground(Color.GREEN);}
             if (x == 4){
-                Property.setText ("Go to Detention");
+                Property.setText ("Detention");
             }
             JLabel Player2 = new JLabel("");
             tile.setPreferredSize(tile.size());
@@ -301,9 +301,9 @@ public class Game extends JFrame {
 				
 				if (GameOver == true){
 					if (Teitel.getMoney() <= 0){
-					Text.setText("Teitel has lost, The winner and new Principal is Zhang");}
+					Text.setText("Teitel has bankrupt and lost, The winner and new Principal is Zhang");}
 					if (Zhang.getMoney() <= 0){
-					Text.setText("Zhang has lost, The winner and still Principal is Teital");}
+					Text.setText("Zhang has bankrupt and lost, The winner and still Principal is Teital");}
 					}
 					
 					
@@ -318,7 +318,7 @@ public class Game extends JFrame {
                             Player1.setIcon(null);
                             if (Location1 + rand > 15){
                                 Location1 = Location1 - 16;
-								Text.append ("While crossing the Tribeca Teitel found $5\n");
+								Text.append ("While crossing the Tribeca, Teitel found $5\n");
 								Teitel.setMoney(Teitel.getMoney() + 5);
 								Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());}
                             temp = (JPanel) board.getComponent(Location1 + rand);
@@ -329,16 +329,71 @@ public class Game extends JFrame {
                             Property CurrentP = PList.get(Location1);
                             Text.append ("Teitel  landed on " + CurrentP.getName() + "\n");
                             if (CurrentP.getName().equals("Chance")){
-                                Text.append("Teitel has lost $20 due to Chance\n");
-                                Teitel .setMoney(Teitel .getMoney() - 20);
-                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+															if (rand == 1){
+                                Text.append("Teitel gives Zhang $10 for her birthday\n");
+                                Teitel.setMoney(Teitel.getMoney() - 10);
+								Zhang.setMoney(Zhang.getMoney() +10);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 2){
+								Text.append("Hudson River flooded, Teitel lost $20 \n");
+                                Teitel.setMoney(Teitel.getMoney() - 20);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 3){
+								Text.append("Teitel took a walk to the Tribeca, Collect $5 \n");
+								Teitel.setMoney(Teitel.getMoney() + 5);
+                                Player1.setIcon(null);
+                                temp = (JPanel) board.getComponent(0);
+                                Player1 = (JLabel) temp.getComponent(0);
+                                Player1.setIcon(thumbnailIcon);
+								Location1 = 0;
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 4){
+								Text.append("It must be your lucky day! Teitel found a $1 \n");
+                                Teitel.setMoney(Teitel.getMoney() + 1);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 5){
+								Text.append("Teitel got a promtioned, earned $20 \n");
+                                Teitel.setMoney(Teitel.getMoney() + 20);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 6){
+								Text.append("Teitel just won the lottery ticked $$$ get $50 \n");
+                                Teitel.setMoney(Teitel.getMoney() + 50);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
                             }
                             else if(CurrentP.getName().equals("Chest")){
-                                Text.append("Teitel has gained $20 from the Community\n");
-                                Teitel .setMoney(Teitel .getMoney() + 20);
+                              	if (rand == 1){
+                                Text.append("Teitel was feeling generous and gave $30 to charity\n");
+                                Teitel.setMoney(Teitel.getMoney() - 30);
                                 Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								if (rand > 1 && rand < 4){
+								Text.append("Teitel received free lunch YAY! \n");
+								Teitel.setMoney(Teitel.getMoney() + 5);
+                                Player1.setIcon(null);
+                                temp = (JPanel) board.getComponent(8);
+                                Player1 = (JLabel) temp.getComponent(0);
+                                Player1.setIcon(thumbnailIcon);
+								Location1 = 8;
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}               
+								if (rand > 4){
+								Text.append("Teitel has gained $20 from the Community\n");
+                                Teitel.setMoney(Teitel.getMoney() + 20);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
                             }
-                            else if(CurrentP.getName().equals("Go to Detention")){
+                            else if(CurrentP.getName().equals("Detention")){
                                     Player1.setIcon(null);
                                     temp = (JPanel) board.getComponent(4);
                                     Player1 = (JLabel) temp.getComponent(0);
@@ -367,7 +422,7 @@ public class Game extends JFrame {
                             Player2.setIcon(null);
                             if (Location2 + rand > 15){
                                 Location2 = Location2 - 16;
-								Text.append ("While crossing the Tribeca Zhang found $5 \n");
+								Text.append ("While crossing the Tribeca, Zhang found $5 \n");
 								Zhang.setMoney(Zhang.getMoney() + 5);
 								Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());}
                             temp = (JPanel) board.getComponent(Location2 + rand);
@@ -378,16 +433,72 @@ public class Game extends JFrame {
                             Property CurrentP = PList.get(Location2);
                             Text.append ("Zhang landed on " + CurrentP.getName() + "\n");
                             if (CurrentP.getName().equals("Chance")){
-                                Text.append("Zhang has lost $20 due to Chance\n");
+								if (rand == 1){
+                                Text.append("Zhang gives Teitel $10 for his birthday\n");
+                                Zhang.setMoney(Zhang.getMoney() - 10);
+								Teitel.setMoney(Teitel.getMoney() +10);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 2){
+								Text.append("Hudson River flooded, Zhang lost $20 \n");
                                 Zhang.setMoney(Zhang.getMoney() - 20);
                                 Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
-                            }
+								}
+								
+								if (rand == 3){
+								Text.append("Zhang took a walk to the Tribeca, Collect $5 \n");
+								Zhang.setMoney(Zhang.getMoney() + 5);
+                                Player2.setIcon(null);
+                                temp = (JPanel) board.getComponent(0);
+                                Player2 = (JLabel) temp.getComponent(2);
+                                Player2.setIcon(thumbnailIcon2);
+								Location2 = 0;
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 4){
+								Text.append("It must be your lucky day! Zhang found a $1 \n");
+                                Zhang.setMoney(Zhang.getMoney() + 1);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 5){
+								Text.append("Zhang got a promtioned, earned $20 \n");
+                                Zhang.setMoney(Zhang.getMoney() + 20);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								
+								if (rand == 6){
+								Text.append("Zhang just won the lottery ticked $$$ get $50 \n");
+                                Zhang.setMoney(Zhang.getMoney() + 50);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+						}
                             else if(CurrentP.getName().equals("Chest")){
-                                Text.append("Zhang has gained $20 from the Community\n");
+								if (rand == 1){
+                                Text.append("Zhang was feeling generous and gave $30 to charity\n");
+                                Zhang.setMoney(Zhang.getMoney() - 30);
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}
+								if (rand > 1 && rand < 4){
+								Text.append("Zhang received free lunch YAY! \n");
+								Zhang.setMoney(Zhang.getMoney() + 5);
+                                Player2.setIcon(null);
+                                temp = (JPanel) board.getComponent(8);
+                                Player2 = (JLabel) temp.getComponent(2);
+                                Player2.setIcon(thumbnailIcon2);
+								Location2 = 8;
+                                Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() +  "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
+								}               
+								if (rand > 4){
+								Text.append("Zhang has gained $20 from the Community\n");
                                 Zhang.setMoney(Zhang.getMoney() + 20);
                                 Bank.setText("Money! \nTeitel has $" + Teitel.getMoney() + "\nTeitel Owns " + Teitel.getOwned() + "\nZhang has $" + Zhang.getMoney() + "\nZhang Owns " + Zhang.getOwned());
-                            }
-                            else if(CurrentP.getName().equals("Go to Detention")){
+								}
+								
+							}
+                            else if(CurrentP.getName().equals("Detention")){
                                     Player2.setIcon(null);
                                     temp = (JPanel) board.getComponent(4);
                                     Player2 = (JLabel) temp.getComponent(2);
@@ -424,9 +535,9 @@ public class Game extends JFrame {
 				
 				if (GameOver == true){
 					if (Teitel.getMoney() <= 0){
-					Text.setText("Teitel has lost, The winner and new Principal is Zhang");}
+					Text.setText("Teitel has bankrupt and lost, The winner and new Principal is Zhang");}
 					if (Zhang.getMoney() <= 0){
-					Text.setText("Zhang has lost, The winner and Principal is still Teital");}
+					Text.setText("Zhang has bankrupt and lost, The winner and  still Principal is Teital");}
 					}
 					
 								
@@ -452,9 +563,9 @@ public class Game extends JFrame {
 				
 				if (GameOver == true){
 					if (Teitel.getMoney() <= 0){
-					Text.setText("Teitel has lost, The winner and new Principal is Zhang");}
+					Text.setText("Teitel has bankrupt and lost, The winner and new Principal is Zhang");}
 					if (Zhang.getMoney() <= 0){
-					Text.setText("Zhang has lost, The winner and Principal is still Teital");}
+					Text.setText("Zhang has bankrupt and lost, The winner and still Principal is Teital");}
 					}
 					
 					
