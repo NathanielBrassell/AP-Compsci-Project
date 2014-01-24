@@ -3,7 +3,6 @@ public class Property {
   
  private int price ;
  private int rent;
- private String type;
  private String name;
  private Boolean avail;
  private Player OwnedBy = null;
@@ -21,6 +20,7 @@ public class Property {
    name = nam;
    avail = true;
  }
+
  
  public int getPrice(){
    return price;
@@ -42,13 +42,19 @@ public class Property {
    avail = boo;
  }
  
- public void setOwner(Player p){
-	OwnedBy = p;
- }
+public void setOwnedNull(){
+	OwnedBy = null;}
+	
+public void setOwner(Player p){
+	OwnedBy = p;}
 	
 public Player getOwner(){
-	return OwnedBy;
-}	
+	return OwnedBy;}	
+
+ 
+ public void toRent(Player play){
+   play.setMoney(play.getMoney() - rent);
+ }
  
  public String toString(){
    return name + "costs" + price + "and rents for" + rent;
