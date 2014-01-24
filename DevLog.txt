@@ -25,8 +25,10 @@ No animations.
 
 Mid-Developement Design Changes: No major changes
 
+Cool Stuff Learned:
+Learned how to make a GUI and it's many components.
+
 Lessons Learned:
-Learned how to make a GUI.
 It is very hard to combine codes, we should of combined them as we went along instead of doing it at the end. 
 
 Contributions:
