@@ -10,3 +10,10 @@
 1/21/14: Nathaniel added Chance and Chest functionality to Game.
 1/22/14: Nathaniel made renting work.
 1/23/14: Nathaniel made DevLog
+
+Obsticles Overcome:
+How to make GUI communicate with code. Lots of research.
+Unresolved Issues:
+No AI, did not have enough time/a little complicated to do it correctly.
+Mid-Developement Design Changes:
+Lessons Learned:
