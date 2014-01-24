@@ -16,4 +16,6 @@ How to make GUI communicate with code. Lots of research.
 Unresolved Issues:
 No AI, did not have enough time/a little complicated to do it correctly.
 Mid-Developement Design Changes:
+No AI, board smaller than origionaly planned.
 Lessons Learned:
+How to make a GUI.
