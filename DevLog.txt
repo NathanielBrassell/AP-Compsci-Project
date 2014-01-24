@@ -22,7 +22,6 @@ We could of made a bigger better code with more tiles and properties but we ran 
 Chance/Community Chest could have had more options.
 We did have enough time to add Houses/Hotels
 No animations.
-No double rolling :( .
 
 Mid-Developement Design Changes: No major changes
 
