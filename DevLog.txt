@@ -7,7 +7,7 @@
 1/15/14: Nathaniel revised Player class, finished Property class. Started Actions for the buttons.
 1/16/14: Nathaniel revised both Player and Property class. Jackie added banking to GUI.
 1/17/14: Nathaniel helped Jackie with Game class. Revised Player. Jackie combined our codes.
-1/21/14: Nathaniel added Chance and Chest functionality to Game. 
+1/21/14: Nathaniel added Chance and Chest functionality to Game. Jackie added more Chance and Chest options.
 1/22/14: Nathaniel made renting work. Jackie finished actions for buttons and add properties for Free Lunch and Tribeca.
 1/23/14: Nathaniel added properties for Go to Detention and made DevLog. Jackie created a way to end the game and tied up loose ends. Finished game.
 
@@ -19,7 +19,7 @@ Problems with ArrayList giving errors.
 Unresolved Issues:
 No AI, did not have enough time/a little complicated to do it correctly.
 We could of made a bigger better code with more tiles and properties but we ran out of time.
-Chance/Community Chest could have had more options.
+Chance/Community Chest could have had more/better options.
 We did have enough time to add Houses/Hotels
 No animations.
 
