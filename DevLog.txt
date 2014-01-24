@@ -1,21 +1,34 @@
-1/9/14: Nathaniel started out line for Player class. Jackie started research for GUI.
-1/10/14: Nathaniel started to out line Property class.
-1/11/14: Nathaniel started coding Player class.
-1/12/14: Nathaneil continued to code Player class.
-1/13/14: Nathaniel finished coding Player class, started Property class. Created to-do list.
-1/14/14: Nathaniel revised Player class, continued coding Property class.
-1/15/14: Nathaniel revised Player class, finished Property class.
-1/16/14: Nathaniel revised both Player and Property class.
-1/17/14: Nathaniel helped Jackie with Game class. Revised Player.
-1/21/14: Nathaniel added Chance and Chest functionality to Game.
-1/22/14: Nathaniel made renting work.
-1/23/14: Nathaniel made DevLog
+1/9/14:  Nathaniel started out line for Player class. Jackie started research for GUI.
+1/10/14: Nathaniel started to out line Property class. Jackie made JFrame for Game.
+1/11/14: Nathaniel started coding Player class. Jackie made menus and buttons.
+1/12/14: Nathaneil continued to code Player class. Jackie made TextAreas, ScrollPane.
+1/13/14: Nathaniel finished coding Player class, started Property class. Created to-do list. Jackie made a layout for panels and components.
+1/14/14: Nathaniel revised Player class, continued coding Property class. Jackie made the actual board in GUI. Jackie added Player and icons.
+1/15/14: Nathaniel revised Player class, finished Property class. Started Actions for the buttons.
+1/16/14: Nathaniel revised both Player and Property class. Jackie added banking to GUI.
+1/17/14: Nathaniel helped Jackie with Game class. Revised Player. Jackie combined our codes.
+1/21/14: Nathaniel added Chance and Chest functionality to Game. 
+1/22/14: Nathaniel made renting work. Jackie finished actions for buttons and add properties for Free Lunch and Tribeca.
+1/23/14: Nathaniel added properties for Go to Detention and made DevLog. Jackie created a way to end the game and tied up loose ends. Finished game.
 
 Obsticles Overcome:
 How to make GUI communicate with code. Lots of research.
+Figuring which layout to use for GUI and how to position everything.
+Problems with ArrayList giving errors.
+
 Unresolved Issues:
 No AI, did not have enough time/a little complicated to do it correctly.
-Mid-Developement Design Changes:
-No AI, board smaller than origionaly planned.
+We could of made a bigger better code with more tiles and properties but we ran out of time.
+Chance/Community Chest could have had more options.
+We did have enough time to add Houses/Hotels
+No animations.
+
+Mid-Developement Design Changes: No major changes
+
 Lessons Learned:
-How to make a GUI.
+Learned how to make a GUI.
+It is very hard to combine codes, we should of combined them as we went along instead of doing it at the end. 
+
+Contributions:
+Nathaniel: Wrote most of Player class and Property class. Helped combined code.
+Jackie: Wrote most of the GUI and combined code.
